@@ -2,12 +2,12 @@ package com.cursosudemy.libraryapi.api.resources;
 
 import com.cursosudemy.libraryapi.api.dto.BookDTO;
 import com.cursosudemy.libraryapi.api.exceptions.ApiErrors;
+import com.cursosudemy.libraryapi.exception.BusinessException;
 import com.cursosudemy.libraryapi.model.entity.Book;
 import com.cursosudemy.libraryapi.service.BookService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
@@ -44,6 +44,12 @@ public class BookController {
 
         return new ApiErrors(bindingResult);
 
+    }
+
+    @ExceptionHandler(BusinessException.class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ApiErrors handleBusinessExceptions(BusinessException exception){
+        return new ApiErrors(exception);
     }
 
 }

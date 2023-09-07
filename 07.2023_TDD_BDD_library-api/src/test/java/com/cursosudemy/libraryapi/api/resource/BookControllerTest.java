@@ -23,7 +23,7 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-// create a mini context of injection dependencies to run the tests
+// create a mini context of dependencies injections to run the tests
 @ExtendWith(SpringExtension.class)
 
 // run with test profile / environment

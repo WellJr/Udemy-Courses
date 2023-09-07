@@ -41,7 +41,7 @@ public class BookServiceTest {
         Book book = createValidBook();
 
         Mockito.when(repository.existsByIsbn(Mockito.anyString())).thenReturn(false);
-        
+
         Book result = Book.builder().id(11L).isbn("123").author("Fulano").title("As aventuras").build();
 
         //acao

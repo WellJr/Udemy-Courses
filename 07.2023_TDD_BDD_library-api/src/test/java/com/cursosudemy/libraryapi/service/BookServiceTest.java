@@ -158,7 +158,7 @@ public class BookServiceTest {
 
         // ação
         Book book = service.update(updatingBook);
-        
+
         //verificação
         assertThat(book.getId()).isEqualTo(updatedBook.getId());
         assertThat(book.getTitle()).isEqualTo(updatedBook.getTitle());

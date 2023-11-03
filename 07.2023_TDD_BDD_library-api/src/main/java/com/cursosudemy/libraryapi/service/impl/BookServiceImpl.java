@@ -4,6 +4,8 @@ import com.cursosudemy.libraryapi.exception.BusinessException;
 import com.cursosudemy.libraryapi.model.entity.Book;
 import com.cursosudemy.libraryapi.model.repository.BookRepository;
 import com.cursosudemy.libraryapi.service.BookService;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -53,6 +55,15 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Page<Book> find(Book filter, Pageable pageRequest) {
-        return null;
+        Example<Book> example = Example.of(filter,
+                ExampleMatcher
+                        .matching()
+                        .withIgnoreCase()
+                        .withIncludeNullValues()
+                        .withStringMatcher( ExampleMatcher.StringMatcher.CONTAINING ) // CONTAINING indica se houver um pedaço da palavra no atrubuto pesquisado deve trzer resultado
+                );
+
+
+        return repository.findAll(example, pageRequest);
     }
 }

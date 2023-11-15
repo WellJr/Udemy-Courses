@@ -1,11 +1,13 @@
 package com.cursosudemy.libraryapi.api.resources;
 
 import com.cursosudemy.libraryapi.api.dto.LoanDto;
+import com.cursosudemy.libraryapi.exception.BusinessException;
 import com.cursosudemy.libraryapi.model.entity.Book;
 import com.cursosudemy.libraryapi.model.entity.Loan;
 import com.cursosudemy.libraryapi.service.BookService;
 import com.cursosudemy.libraryapi.service.LoanService;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -76,11 +78,36 @@ public class LoanControllerTest {
                 .contentType(MediaType.APPLICATION_JSON)
                 .content(json);
 
-
         //resultado
         mvc.perform(request)
                 .andExpect(status().isCreated())
                 .andExpect( content().string("1") );
 
     }
+
+    @Test
+    @DisplayName("Deve retornar erro ao tentar fazer emprestimo de um livro inexistente.")
+    public void invalidIsbnCreateLoanTest() throws Exception {
+        //cenario
+        LoanDto dto = LoanDto.builder().isbn("123").customer("Fulano").build();
+        String json = new ObjectMapper().writeValueAsString(dto);
+
+        BDDMockito.given(bookService.getBookByIsbn("123"))
+                .willReturn(Optional.empty());
+
+
+        //acao
+        MockHttpServletRequestBuilder request =  MockMvcRequestBuilders.post(LOAN_API)
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(json);
+
+
+        //resultado
+        mvc.perform(request)
+                .andExpect(status().isBadRequest())
+                .andExpect( jsonPath("errors", Matchers.hasSize(1)))
+                .andExpect(jsonPath("errors[0]").value("Book not found for passed isbn"));
+    }
+
 }

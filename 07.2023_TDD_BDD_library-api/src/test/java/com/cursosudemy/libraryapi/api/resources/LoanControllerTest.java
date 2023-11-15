@@ -27,8 +27,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 import java.util.Properties;
 
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 // create a mini context of dependencies injections to run the tests
 @ExtendWith(SpringExtension.class)
@@ -81,7 +80,7 @@ public class LoanControllerTest {
         //resultado
         mvc.perform(request)
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("id").value(1L));
+                .andExpect( content().string("1") );
 
     }
 }

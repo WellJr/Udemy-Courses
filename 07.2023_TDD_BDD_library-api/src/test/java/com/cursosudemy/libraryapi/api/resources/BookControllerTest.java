@@ -1,4 +1,4 @@
-package com.cursosudemy.libraryapi.api.resource;
+package com.cursosudemy.libraryapi.api.resources;
 
 import com.cursosudemy.libraryapi.api.dto.BookDTO;
 import com.cursosudemy.libraryapi.exception.BusinessException;
@@ -18,7 +18,6 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -36,7 +35,11 @@ import java.util.Optional;
 // run with test profile / environment
 @ActiveProfiles("test")
 
-@WebMvcTest
+/*
+ * The @WebMvcTest annotation is used for Spring MVC tests.
+ * It disables full auto-configuration and instead applies only configuration relevant to MVC tests.
+ * */
+@WebMvcTest(controllers = BookController.class)
 
 // configure objects to do requests
 @AutoConfigureMockMvc

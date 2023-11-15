@@ -20,7 +20,7 @@ import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @ActiveProfiles("test")
 
-// Indicates we gonna do tests with JPA. It creates an instance an In Memory BD and after que testes delete
+// Indicates we gonna do tests with JPA. It creates an instance an In Memory BD and after the tests delete
 // all data.
 @DataJpaTest
 public class BookRepositoryTest {

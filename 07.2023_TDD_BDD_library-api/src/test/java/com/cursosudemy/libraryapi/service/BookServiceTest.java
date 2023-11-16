@@ -23,13 +23,14 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 // create a mini context of injection dependencies to run the tests
 @ExtendWith(SpringExtension.class)
 
 // run with test profile / environment
 @ActiveProfiles("test")
-
 public class BookServiceTest {
 
     BookService service;
@@ -80,7 +81,7 @@ public class BookServiceTest {
                 .isInstanceOf(BusinessException.class)
                 .hasMessage("Isbn já cadastrado.");
 
-        Mockito.verify(repository, Mockito.never()).save(book);
+        verify(repository, Mockito.never()).save(book);
 
     }
 
@@ -130,7 +131,7 @@ public class BookServiceTest {
         org.junit.jupiter.api.Assertions.assertDoesNotThrow(() -> service.delete(bookToDelete));
 
         //verificação
-        Mockito.verify(repository, Mockito.times(1)).delete(bookToDelete);
+        verify(repository, Mockito.times(1)).delete(bookToDelete);
 
     }
 
@@ -144,7 +145,7 @@ public class BookServiceTest {
         org.junit.jupiter.api.Assertions.assertThrows(IllegalArgumentException.class, () -> service.delete(bookToDelete));
 
         //verificação
-        Mockito.verify(repository, Mockito.never()).delete(bookToDelete);
+        verify(repository, Mockito.never()).delete(bookToDelete);
     }
 
     @Test
@@ -207,7 +208,26 @@ public class BookServiceTest {
         org.junit.jupiter.api.Assertions.assertThrows(IllegalArgumentException.class, () -> service.update(bookToDelete));
 
         //verificação
-        Mockito.verify(repository, Mockito.never()).save(bookToDelete);
+        verify(repository, Mockito.never()).save(bookToDelete);
+    }
+
+    @Test
+    @DisplayName("Deve obter um livro pelo ISBN")
+    public void getBookByIsbnTest() {
+
+        //canario
+        String isbn = "1230";
+        Mockito.when(repository.findByIsbn(isbn)).thenReturn(Optional.of(Book.builder().id(1L).isbn(isbn).build()));
+
+        //ação
+        Optional<Book> book = service.getBookByIsbn(isbn);
+
+        //verificação
+        assertThat(book.isPresent()).isTrue();
+        assertThat(book.get().getId()).isEqualTo(1L);
+        assertThat(book.get().getIsbn()).isEqualTo(isbn);
+
+        verify(repository, times(1)).findByIsbn(isbn);
     }
 
 

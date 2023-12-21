@@ -160,6 +160,30 @@ public class LoanControllerTest {
         Mockito.verify(loanService, Mockito.times(1)).update(loan);
     }
 
+    @Test
+    @DisplayName("Deve retornar 404 quando tentar deveolver um livro inexistente.")
+    public void returnInxistentBookTest() throws Exception{
+        // cenario { returned: true }
+        ReturnedLoanDTO dto = ReturnedLoanDTO.builder().returned(true).build();
+
+        BDDMockito.given(loanService.getById(Mockito.anyLong()))
+                .willReturn(Optional.empty());
+
+
+        String json = new ObjectMapper().writeValueAsString(dto);
+
+        //ação
+        mvc.perform(
+                MockMvcRequestBuilders.patch(LOAN_API.concat("/1"))
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json)
+        )
+
+        //verificação
+        .andExpect(status().isNotFound());
+
+    }
 
 
 

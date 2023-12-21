@@ -5,6 +5,8 @@ import com.cursosudemy.libraryapi.model.entity.Book;
 import com.cursosudemy.libraryapi.model.entity.Loan;
 import com.cursosudemy.libraryapi.model.repository.LoanRepository;
 import com.cursosudemy.libraryapi.service.impl.LoanServiceImpl;
+import org.assertj.core.api.Assert;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -15,6 +17,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.time.LocalDate;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.catchThrowable;
@@ -95,6 +98,42 @@ public class LoanServiceTest {
                 .hasMessage("Book already loaned");
 
         Mockito.verify(repository, Mockito.never()).save(savingLoan);
+    }
+
+    @Test
+    @DisplayName("Deve obter as informações de um empréstimo pelo ID")
+    public void getLoanDetailsTest() {
+        // cenario
+        Long id = 1L;
+
+        Loan loan = createLoan();
+        loan.setId(id);
+
+        Mockito.when(repository.findById(id)).thenReturn(Optional.of(loan));
+
+        // ação
+        Optional<Loan> returnedLoan = service.getById(id);
+
+        //verificação
+        Assertions.assertThat(returnedLoan.isPresent()).isTrue();
+        Assertions.assertThat(returnedLoan.get().getId()).isEqualTo(loan.getId());
+        Assertions.assertThat(returnedLoan.get().getCustomer()).isEqualTo(loan.getCustomer());
+        Assertions.assertThat(returnedLoan.get().getBook()).isEqualTo(loan.getBook());
+        Assertions.assertThat(returnedLoan.get().getLoanDate()).isEqualTo(loan.getLoanDate());
+
+        Mockito.verify(repository, Mockito.times(1)).findById(Mockito.anyLong());
+
+    }
+
+    public Loan createLoan() {
+        Book book = Book.builder().id(1L).build();
+        String customer = "Fulano";
+
+        return Loan.builder()
+                .book(book)
+                .customer(customer)
+                .loanDate(LocalDate.now())
+                .build();
     }
 
 }

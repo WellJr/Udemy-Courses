@@ -193,7 +193,7 @@ public class LoanControllerTest {
 
     @Test
     @DisplayName("Deve filtrar emprestimos")
-    public void findBookTest() throws Exception{
+    public void findLoanTest() throws Exception{
 
         //cenario
         Long id = 1L;
@@ -202,18 +202,16 @@ public class LoanControllerTest {
         Book book = Book.builder().id(1L).isbn("321").build();
         loan.setBook(book);
 
-
         BDDMockito.given(loanService.find(Mockito.any(LoanFilterDTO.class), Mockito.any(Pageable.class)))
                 .willReturn( new PageImpl<Loan>(Arrays.asList(loan), PageRequest.of(0, 10), 1));
 
-        String queryString = String.format("?isbn=%s&customer=%s&page=0&size=100",
+        String queryString = String.format("?isbn=%s&customer=%s&page=0&size=10",
                 book.getIsbn(),
                 loan.getCustomer());
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
                 .get(LOAN_API.concat(queryString))
                 .accept(MediaType.APPLICATION_JSON);
-
 
         mvc
                 .perform(request)

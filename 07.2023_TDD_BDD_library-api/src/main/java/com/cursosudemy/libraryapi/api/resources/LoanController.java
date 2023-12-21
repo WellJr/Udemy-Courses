@@ -1,6 +1,7 @@
 package com.cursosudemy.libraryapi.api.resources;
 
 import com.cursosudemy.libraryapi.api.dto.LoanDto;
+import com.cursosudemy.libraryapi.api.dto.ReturnedLoanDTO;
 import com.cursosudemy.libraryapi.model.entity.Book;
 import com.cursosudemy.libraryapi.model.entity.Loan;
 import com.cursosudemy.libraryapi.service.BookService;
@@ -39,4 +40,12 @@ public class LoanController {
         return entity.getId();
     }
 
+    @PatchMapping(path = "{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void returnBook(@PathVariable Long id, @RequestBody ReturnedLoanDTO dto) {
+        Loan loan = loanService.getById(id).get();
+        loan.setReturned(dto.getReturned());
+
+        loanService.update(loan);
+    }
 }

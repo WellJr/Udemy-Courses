@@ -1,5 +1,6 @@
 package com.cursosudemy.libraryapi.service;
 
+import com.cursosudemy.libraryapi.model.entity.Book;
 import com.cursosudemy.libraryapi.model.entity.Loan;
 import com.cursosudemy.libraryapi.api.dto.LoanFilterDTO;
 import org.springframework.data.domain.Page;
@@ -15,4 +16,6 @@ public interface LoanService {
     Loan update(Loan loan);
 
     Page<Loan> find(LoanFilterDTO loanFilterDTO, Pageable any1);
+
+    Page<Loan> getLoansByBook(Book book, Pageable pageable);
 }

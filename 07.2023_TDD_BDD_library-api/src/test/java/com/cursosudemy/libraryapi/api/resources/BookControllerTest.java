@@ -4,6 +4,8 @@ import com.cursosudemy.libraryapi.api.dto.BookDTO;
 import com.cursosudemy.libraryapi.exception.BusinessException;
 import com.cursosudemy.libraryapi.model.entity.Book;
 import com.cursosudemy.libraryapi.service.BookService;
+import com.cursosudemy.libraryapi.service.EmailService;
+import com.cursosudemy.libraryapi.service.LoanService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.Matchers;
 import org.junit.jupiter.api.DisplayName;
@@ -52,6 +54,12 @@ public class BookControllerTest {
 
     @MockBean
     BookService service;
+
+    @MockBean
+    LoanService loanService;
+
+    @MockBean
+    EmailService emailService;
 
     @Test
     @DisplayName("Deve criar um livro com sucesso.")

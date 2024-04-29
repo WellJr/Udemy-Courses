@@ -7,6 +7,7 @@ import com.cursosudemy.libraryapi.exception.BusinessException;
 import com.cursosudemy.libraryapi.model.entity.Book;
 import com.cursosudemy.libraryapi.model.entity.Loan;
 import com.cursosudemy.libraryapi.service.BookService;
+import com.cursosudemy.libraryapi.service.EmailService;
 import com.cursosudemy.libraryapi.service.LoanService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.hamcrest.Matchers;
@@ -64,6 +65,9 @@ public class LoanControllerTest {
 
     @MockBean
     private LoanService loanService;
+
+    @MockBean
+    EmailService emailService;
 
     @Test
     @DisplayName("Deve realizar um emprestimo")

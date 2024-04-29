@@ -2,6 +2,7 @@ package com.cursosudemy.libraryapi.model.repository;
 
 import com.cursosudemy.libraryapi.model.entity.Book;
 import com.cursosudemy.libraryapi.model.entity.Loan;
+import com.cursosudemy.libraryapi.service.EmailService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -9,6 +10,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.test.context.ActiveProfiles;
@@ -37,6 +39,9 @@ public class LoanRepositoryTest {
 
     @Autowired
     LoanRepository repository;
+
+    @MockBean
+    EmailService emailService;
 
     @Test
     @DisplayName("Deve verificar se existe empréstimo não devolvido para o livro")

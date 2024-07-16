@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: msclientes
+
+# port = 0 indica que o seriço ira subir em uma porta aleatória.
+# Isso foi feito devido as várias instâncias do serviço que irão subir.
+server:
+  port: 0
+
+# Informa onde esta o servidor Eureka.
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+  instance:
+    # Define o Id da instância dentro do Eureka server.
+    instance-id: ${spring.application.name}:${spring.application.instance_id:${random.value}}

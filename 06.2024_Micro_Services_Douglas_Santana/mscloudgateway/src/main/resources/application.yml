@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: mscloudgateway
+
+# habilita o localizador de micro-serviços.
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true #considera os valores de busca em caxa baixa. Ex: msclientes
+
+server:
+  port: 8080
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka

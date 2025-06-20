@@ -1,16 +1,22 @@
 package io.github.dougllasfps.config;
 
+import io.github.dougllasfps.service.impl.UserDetailServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.parameters.P;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    @Autowired
+    private UserDetailServiceImpl userDetailService;
+
+    @Bean
     public PasswordEncoder passwordEncoder() {
         // BCryptPasswordEncoder --> Gera um hash diferente pra mesma senha.
         return new BCryptPasswordEncoder();
@@ -21,11 +27,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         // AuthenticationManagerBuilder --> Define de onde virá os usuários e senhas &
         // Tras os objetos que irá fazer a autenticação dos usuários
 
-        auth.inMemoryAuthentication()
-                .passwordEncoder(passwordEncoder())
-                .withUser("fulano")
-                .password(passwordEncoder().encode("1234"))
-                .roles("USER", "ADMIN");
+        // .userDetailsService --> Carrega os usuarios da base
+        auth.userDetailsService(userDetailService)
+                .passwordEncoder(passwordEncoder());
     }
 
     @Override

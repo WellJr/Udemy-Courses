@@ -42,8 +42,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 // volta para raiz do HttpSecurity
                 .and()
 
-                    //Cria tela de login do proprio spring security
-                    .formLogin();
+                //permite requisição através do header
+                .httpBasic();
     }
 
 }

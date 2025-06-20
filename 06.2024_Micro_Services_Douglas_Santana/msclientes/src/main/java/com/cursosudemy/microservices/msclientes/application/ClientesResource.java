@@ -3,6 +3,7 @@ package com.cursosudemy.microservices.msclientes.application;
 import com.cursosudemy.microservices.msclientes.application.representation.ClienteSaveRequest;
 import com.cursosudemy.microservices.msclientes.domain.Cliente;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -13,12 +14,14 @@ import java.util.Optional;
 @RestController
 @RequestMapping("clientes")
 @RequiredArgsConstructor
+@Slf4j
 public class ClientesResource {
 
     private final ClienteService service;
 
     @GetMapping
     private String status() {
+        log.info("Obtendo o status do microservice de clientes");
         return "ok";
     }
 

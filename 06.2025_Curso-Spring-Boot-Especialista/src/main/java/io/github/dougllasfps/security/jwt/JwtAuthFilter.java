@@ -25,6 +25,7 @@ public class JwtAuthFilter extends OncePerRequestFilter {
     }
 
     @Override
+    // Intercepta requisições
     protected void doFilterInternal(HttpServletRequest httpServletRequest,
                                     HttpServletResponse httpServletResponse,
                                     FilterChain filterChain) throws ServletException, IOException {

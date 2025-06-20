@@ -2,6 +2,7 @@ package io.github.dougllasfps.service.impl;
 
 import io.github.dougllasfps.domain.entity.Usuario;
 import io.github.dougllasfps.domain.repository.UsuarioRepository;
+import io.github.dougllasfps.exception.SenhaInvalidaException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -25,6 +26,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
     private UsuarioRepository repository;
 
     @Override
+    // # 1
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
             Usuario usuario = repository.findByLogin(username).orElseThrow(
                     () -> new UsernameNotFoundException("Usuário ("+username+") não econtrado na base de daods."));
@@ -40,8 +42,20 @@ public class UserDetailServiceImpl implements UserDetailsService {
                     .build();
     }
 
+    // # 2
     @Transactional
     public Usuario salvar(Usuario usuario) {
         return repository.save(usuario);
+    }
+
+    // # 3
+    public UserDetails autenticar(Usuario usuario) {
+        UserDetails userDetails = loadUserByUsername(usuario.getLogin());
+        boolean senhasBatem = encoder.matches(usuario.getSenha(), userDetails.getPassword());
+        if (senhasBatem) {
+            return  userDetails;
+        }
+
+        throw  new SenhaInvalidaException();
     }
 }

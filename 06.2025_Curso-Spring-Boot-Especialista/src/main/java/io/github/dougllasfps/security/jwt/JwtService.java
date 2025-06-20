@@ -1,5 +1,6 @@
-package io.github.dougllasfps;
+package io.github.dougllasfps.security.jwt;
 
+import io.github.dougllasfps.VendasApplication;
 import io.github.dougllasfps.domain.entity.Usuario;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.ExpiredJwtException;

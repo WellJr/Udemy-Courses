@@ -60,7 +60,7 @@ public class JwtService {
             LocalDateTime localDateTime =
                     dataExpiracao.toInstant().atZone(ZoneId.systemDefault()).toLocalDateTime();
 
-            return LocalDateTime.now().isAfter(localDateTime);
+            return !LocalDateTime.now().isAfter(localDateTime);
 
         }catch (Exception e) {
             return false;

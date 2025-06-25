@@ -39,6 +39,7 @@ public class ClienteController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Cliente save( @RequestBody @Valid Cliente cliente ){
+
         return clientes.save(cliente);
     }
 

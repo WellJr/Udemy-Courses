@@ -3,6 +3,7 @@ package io.github.cursodsousa.libraryapi.service;
 import io.github.cursodsousa.libraryapi.model.GeneroLivro;
 import io.github.cursodsousa.libraryapi.model.Livro;
 import io.github.cursodsousa.libraryapi.repository.LivroRepository;
+import io.github.cursodsousa.libraryapi.security.SecurityService;
 import io.github.cursodsousa.libraryapi.validator.LivroValidator;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -23,9 +24,14 @@ public class LivroService {
 
     private final LivroRepository repository;
     private final LivroValidator validator;
+    private final SecurityService securityService;
 
     public Livro salvar(Livro livro) {
         validator.validar(livro);
+
+        //Salva auditoria
+        livro.setUsuario(securityService.obterUsuarioLogado());
+
         return repository.save(livro);
     }
 

@@ -6,11 +6,16 @@ import io.github.cursodsousa.libraryapi.controller.mappers.AutorMapper;
 import io.github.cursodsousa.libraryapi.exceptions.OperacaoNaoPermitidaException;
 import io.github.cursodsousa.libraryapi.exceptions.RegistroDuplicadoException;
 import io.github.cursodsousa.libraryapi.model.Autor;
+import io.github.cursodsousa.libraryapi.model.Usuario;
+import io.github.cursodsousa.libraryapi.security.SecurityService;
 import io.github.cursodsousa.libraryapi.service.AutorService;
+import io.github.cursodsousa.libraryapi.service.UsuarioService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
@@ -30,7 +35,7 @@ public class AutorController implements GenericController {
 
     @PostMapping
     @PreAuthorize("hasRole('GERENTE')")
-    public ResponseEntity<Void> salvar(@RequestBody @Valid AutorDTO dto) {
+    public ResponseEntity<Void> salvar(@RequestBody @Valid AutorDTO dto, Authentication authentication ) {
         Autor autor = mapper.toEntity(dto);
         service.salvar(autor);
         URI location = gerarHeaderLocation(autor.getId());

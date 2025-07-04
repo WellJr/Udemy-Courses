@@ -4,8 +4,10 @@ import io.github.cursodsousa.libraryapi.exceptions.OperacaoNaoPermitidaException
 import io.github.cursodsousa.libraryapi.model.Autor;
 import io.github.cursodsousa.libraryapi.repository.AutorRepository;
 import io.github.cursodsousa.libraryapi.repository.LivroRepository;
+import io.github.cursodsousa.libraryapi.security.SecurityService;
 import io.github.cursodsousa.libraryapi.validator.AutorValidator;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
@@ -22,8 +24,15 @@ public class AutorService {
     private final AutorValidator validator;
     private final LivroRepository livroRepository;
 
+    @Autowired
+    private SecurityService securityService;
+
     public Autor salvar(Autor autor){
         validator.validar(autor);
+
+        // salvando auditoria
+        autor.setUsuario(securityService.obterUsuarioLogado());
+
         return repository.save(autor);
     }
 

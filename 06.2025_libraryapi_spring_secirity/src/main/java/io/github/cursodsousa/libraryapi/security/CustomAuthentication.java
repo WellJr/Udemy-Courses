@@ -8,6 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
@@ -18,9 +19,10 @@ public class CustomAuthentication implements Authentication {
 
     @Override
     public Collection<GrantedAuthority> getAuthorities() {
-        return this.usuario.getRoles()
+        return this.usuario
+                .getRoles()
                 .stream()
-                .map(role -> new SimpleGrantedAuthority((role)))
+                .map(x -> new SimpleGrantedAuthority("ROLE_"+x))
                 .collect(Collectors.toList());
     }
 

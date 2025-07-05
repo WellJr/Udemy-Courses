@@ -47,7 +47,7 @@ public class SecurityConfiguration {
         return new BCryptPasswordEncoder(10);
     }
 
-    @Bean
+//    @Bean // <-- desabilitando UserDetailsService
     // #2 - Create a bean of UserDetailService
     public UserDetailsService userDetailsService(UsuarioService usuarioService){
 //        UserDetails user1 = User.builder()

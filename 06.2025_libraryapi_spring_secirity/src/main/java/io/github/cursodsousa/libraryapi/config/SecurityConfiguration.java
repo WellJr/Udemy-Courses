@@ -47,31 +47,6 @@ public class SecurityConfiguration {
     }
 
     @Bean
-    public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(10);
-    }
-
-//    @Bean // <-- desabilitando UserDetailsService
-    // #2 - Create a bean of UserDetailService
-    public UserDetailsService userDetailsService(UsuarioService usuarioService){
-//        UserDetails user1 = User.builder()
-//                .username("usuario")
-//                .password(encoder.encode("123"))
-//                .roles("USER")
-//                .build();
-//
-//        UserDetails user2 = User.builder()
-//                .username("admin")
-//                .password(encoder.encode("admin"))
-//                .roles("ADMIN")
-//                .build();
-//
-//        return new InMemoryUserDetailsManager(user1, user2);
-
-        return new CustomUserDetailsService(usuarioService);
-    }
-
-    @Bean
     // Define o prefixo das roles. Ex: ROLE_ADMIN, ROLE_USER etc ...
     public GrantedAuthorityDefaults grantedAuthorityDefaults() {
         return new GrantedAuthorityDefaults("");

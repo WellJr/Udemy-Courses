@@ -43,8 +43,14 @@ public class CustomRegisteredClientRepository implements RegisteredClientReposit
                 .redirectUri(client.getRedirectURI())
                 .scope(client.getScope())
                 .clientAuthenticationMethod(ClientAuthenticationMethod.CLIENT_SECRET_BASIC)
-                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE)
-                .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS)
+
+                //GrantType: Definne a forma usada para se autenticar
+                .authorizationGrantType(AuthorizationGrantType.AUTHORIZATION_CODE) // Digita login e senha
+                .authorizationGrantType(AuthorizationGrantType.CLIENT_CREDENTIALS) // De aplicação para aplicação
+
+                // Só faz sentido usar REFRESH_TOKEN quando logado com usuário e senha
+                .authorizationGrantType(AuthorizationGrantType.REFRESH_TOKEN)
+
                 .tokenSettings(tokenSettings)
                 .clientSettings(clientSettings)
                 .build();

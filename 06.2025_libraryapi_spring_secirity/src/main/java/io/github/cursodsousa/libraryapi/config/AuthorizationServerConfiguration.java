@@ -52,6 +52,7 @@ public class AuthorizationServerConfiguration {
         return http.build();
     }
 
+    @Bean
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder(10);
     }
@@ -60,7 +61,10 @@ public class AuthorizationServerConfiguration {
     public TokenSettings tokenSettings(){
         return TokenSettings.builder()
                 .accessTokenFormat(OAuth2TokenFormat.SELF_CONTAINED)
+                // access_toke: token utilizado nas requisições
                 .accessTokenTimeToLive(Duration.ofMinutes(60))
+                // refresh_token: token para renovar o access_token
+                .refreshTokenTimeToLive(Duration.ofMinutes(90))
                 .build();
     }
 
@@ -76,7 +80,7 @@ public class AuthorizationServerConfiguration {
     @Bean
     public JWKSource<SecurityContext> jwkSource() throws Exception {
         RSAKey rsaKey = gerarChaveRSA();
-        JWKSet jwkSet = new JWKSet();
+        JWKSet jwkSet = new JWKSet(rsaKey);
         return new ImmutableJWKSet<>(jwkSet);
     }
 

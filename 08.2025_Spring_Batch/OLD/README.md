@@ -1,0 +1,1 @@
+https://docs.spring-boot-admin.com/current/getting-started.html

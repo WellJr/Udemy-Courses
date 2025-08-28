@@ -1,0 +1,13 @@
+2025-08-28 20:46:18,576 INFO c.u.p.PrimeiroJobSpringBatchApplication [main] Starting PrimeiroJobSpringBatchApplication on LAPTOP-9S3QJ4GF with PID 28520 (C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\target\classes started by Wellington in C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch)
+2025-08-28 20:46:18,583 INFO c.u.p.PrimeiroJobSpringBatchApplication [main] No active profile set, falling back to default profiles: default
+2025-08-28 20:46:19,672 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2025-08-28 20:46:20,628 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2025-08-28 20:46:20,698 INFO o.s.b.c.r.s.JobRepositoryFactoryBean [main] No database type set, using meta data indicating: POSTGRES
+2025-08-28 20:46:20,956 INFO o.s.b.c.l.s.SimpleJobLauncher [main] No TaskExecutor has been set, defaulting to synchronous executor.
+2025-08-28 20:46:21,171 INFO c.u.p.PrimeiroJobSpringBatchApplication [main] Started PrimeiroJobSpringBatchApplication in 3.447 seconds (JVM running for 7.234)
+2025-08-28 20:46:21,323 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=imprimeOlaJob]] launched with the following parameters: [{run.id=13, nome=Ju}]
+2025-08-28 20:46:21,394 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [imprimeOlaStep]
+2025-08-28 20:46:21,423 INFO o.s.b.c.s.AbstractStep [main] Step: [imprimeOlaStep] executed in 29ms
+2025-08-28 20:46:21,438 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=imprimeOlaJob]] completed with the following parameters: [{run.id=13, nome=Ju}] and the following status: [COMPLETED] in 74ms
+2025-08-28 20:46:21,442 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2025-08-28 20:46:21,468 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.

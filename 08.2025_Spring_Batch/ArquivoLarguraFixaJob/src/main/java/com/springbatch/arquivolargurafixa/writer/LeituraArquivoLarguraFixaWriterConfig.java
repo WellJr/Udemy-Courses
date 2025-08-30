@@ -9,8 +9,7 @@ import com.springbatch.arquivolargurafixa.dominio.Cliente;
 @Configuration
 public class LeituraArquivoLarguraFixaWriterConfig {
 	@Bean
-	public ItemWriter<Cliente> leituraArquivoLarguraFixaWriter()
-	{
+	public ItemWriter<Cliente> leituraArquivoLarguraFixaWriter() {
 		return items -> items.forEach(System.out::println);
 
 // Teste para forçar erro do Job

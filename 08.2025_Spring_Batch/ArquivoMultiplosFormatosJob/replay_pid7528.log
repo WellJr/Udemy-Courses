@@ -1,0 +1,20 @@
+JvmtiExport can_access_local_variables 1
+JvmtiExport can_hotswap_or_post_breakpoint 1
+JvmtiExport can_post_on_exceptions 1
+# 181 ciObject found
+ciMethod java/lang/Object <init> ()V 4097 1 360640 0 -1
+ciMethod java/lang/String <init> ([CII)V 4097 1 5809 0 -1
+ciMethod java/lang/String length ()I 4097 1 114648 0 -1
+ciMethod java/lang/String indexOf (Ljava/lang/String;)I 2129 1 17883 0 -1
+ciMethod java/lang/String indexOf (Ljava/lang/String;I)I 3073 1 26235 0 -1
+ciMethod java/lang/String indexOf ([CIILjava/lang/String;I)I 81 1 10 0 -1
+ciMethod java/lang/String indexOf ([CII[CIII)I 1545 108833 1386 0 -1
+ciMethod java/lang/String substring (I)Ljava/lang/String; 1545 1 5315 0 -1
+ciMethod java/lang/String substring (II)Ljava/lang/String; 2049 1 5381 0 -1
+ciMethod java/lang/AbstractStringBuilder <init> (I)V 1897 1 33893 0 -1
+ciMethod java/lang/AbstractStringBuilder append (Ljava/lang/String;)Ljava/lang/AbstractStringBuilder; 3649 1 5672 0 -1
+ciMethod java/lang/AbstractStringBuilder replace (IILjava/lang/String;)Ljava/lang/AbstractStringBuilder; 49 1 6 0 -1
+ciMethod java/lang/AbstractStringBuilder substring (II)Ljava/lang/String; 65 1 8 0 -1
+ciMethod java/lang/AbstractStringBuilder indexOf (Ljava/lang/String;I)I 81 1 10 0 -1
+ciMethod java/lang/StringBuilder <init> ()V 1577 1 21428 0 -1
+ciMethod 

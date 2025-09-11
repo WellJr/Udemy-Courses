@@ -1,6 +1,8 @@
 package com.springbatch.processadorvalidacao.processor;
 
 import org.springframework.batch.item.ItemProcessor;
+import org.springframework.batch.item.support.CompositeItemProcessor;
+import org.springframework.batch.item.support.builder.CompositeItemProcessorBuilder;
 import org.springframework.batch.item.validator.BeanValidatingItemProcessor;
 import org.springframework.batch.item.validator.ValidatingItemProcessor;
 import org.springframework.batch.item.validator.ValidationException;
@@ -19,12 +21,26 @@ public class ProcessadorValidacaoProcessorConfig {
 	private Set<String> emails = new HashSet<>();
 
 	@Bean
-	public ItemProcessor<Cliente, Cliente> procesadorValidacaoProcessor() {
-//		BeanValidatingItemProcessor<Cliente> processor = new BeanValidatingItemProcessor<Cliente>();
-//
-//		// Filtra os dados e impede que o processamento pare.
-//		processor.setFilter(true);
+	public ItemProcessor<Cliente, Cliente> procesadorValidacaoProcessor() throws Exception {
+		return new CompositeItemProcessorBuilder<Cliente, Cliente>()
 
+				// determina os processadores validadores
+				.delegates(beanValidatingProcessor(), emailValidatingProcessor())
+				.build();
+
+	}
+
+	private BeanValidatingItemProcessor<Cliente> beanValidatingProcessor() throws Exception {
+		BeanValidatingItemProcessor<Cliente> processor = new BeanValidatingItemProcessor<Cliente>();
+		processor.setFilter(true); // <-- Filtra os dados e impede que o processamento pare.
+
+		// Seta as propriedades do processador
+		processor.afterPropertiesSet();
+
+		return processor;
+	}
+
+	private ValidatingItemProcessor<Cliente> emailValidatingProcessor() {
 		// Cria validação personalizada
 		ValidatingItemProcessor<Cliente> processor = new ValidatingItemProcessor<Cliente>();
 		processor.setValidator(validator());

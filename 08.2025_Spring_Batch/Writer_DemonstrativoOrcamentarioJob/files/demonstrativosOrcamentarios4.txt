@@ -1,0 +1,15 @@
+SISTEMA INTEGRADO: XPTO 				 DATA: 16/09/2025
+MÓDULO: ORÇAMENTO 						 HORA: 20:09
+			DEMONSTRATIVO ORCAMENTARIO
+----------------------------------------------------------------------------
+CODIGO NOME VALOR
+	 Data Descricao Valor
+----------------------------------------------------------------------------
+
+	 [11/05/2020] Livro de Algoritmos - R$ 4.000,00
+	 [12/05/2020] Dicionários - R$ 4.000,00
+	 [11/05/2020] Livro de Algoritmos - R$ 4.000,00
+	 [12/05/2020] Dicionários - R$ 4.000,00
+
+
+							  Total: R$ 8.000,00							  Código de Autenticação: fkyew6868fewjfhjjewf

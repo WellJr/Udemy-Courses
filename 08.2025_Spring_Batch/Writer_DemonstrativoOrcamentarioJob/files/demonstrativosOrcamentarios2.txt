@@ -1,0 +1,17 @@
+SISTEMA INTEGRADO: XPTO 				 DATA: 16/09/2025
+MÓDULO: ORÇAMENTO 						 HORA: 20:09
+			DEMONSTRATIVO ORCAMENTARIO
+----------------------------------------------------------------------------
+CODIGO NOME VALOR
+	 Data Descricao Valor
+----------------------------------------------------------------------------
+
+	 [03/05/2020] Bandeiras - R$ 500,00
+	 [04/05/2020] Guarda Sol - R$ 500,00
+	 [02/05/2020] Cortina de sala - R$ 1.000,00
+	 [03/05/2020] Bandeiras - R$ 500,00
+	 [04/05/2020] Guarda Sol - R$ 500,00
+	 [02/05/2020] Cortina de sala - R$ 1.000,00
+
+
+							  Total: R$ 2.000,00							  Código de Autenticação: fkyew6868fewjfhjjewf

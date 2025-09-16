@@ -8,9 +8,9 @@ import java.util.Date;
 
 import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.batch.item.ItemWriter;
-import org.springframework.batch.item.file.FlatFileHeaderCallback;
-import org.springframework.batch.item.file.FlatFileItemWriter;
+import org.springframework.batch.item.file.*;
 import org.springframework.batch.item.file.builder.FlatFileItemWriterBuilder;
+import org.springframework.batch.item.file.builder.MultiResourceItemWriterBuilder;
 import org.springframework.batch.item.file.transform.LineAggregator;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -50,6 +50,31 @@ public class DemonstrativoOrcamentarioWriterConfig {
 //			System.out.println(String.format("\t\t\t\t\t\t\t  Código de Autenticação: %s", "fkyew6868fewjfhjjewf"));
 //		};
 //	}
+
+	@StepScope
+	@Bean
+	public MultiResourceItemWriter<GrupoLancamento> multiDemosntrativoOrcamentarioWriter(
+			@Value("#{jobParameters['demonstrativosOrcamentarios']}") Resource demonstrativoOrcamentario,
+			FlatFileItemWriter<GrupoLancamento> demonstrativoOrcamentarioWriter) {
+		return new MultiResourceItemWriterBuilder<GrupoLancamento>()
+				.name("multiDemosntrativoOrcamentarioWriter")
+				.resource(demonstrativoOrcamentario)
+				.delegate(demonstrativoOrcamentarioWriter)
+				.resourceSuffixCreator(suffixCreator())
+				.itemCountLimitPerResource(1) // <-- máximo de itens por recurso (arquivo). Esse valor caminha de acordo
+				// com a quantidade de itens no cheuck. Ex Chunk = 100 quer dizer que o item só será escrito quando passar os 100 itens do chunck.
+				.build();
+
+	}
+
+	private ResourceSuffixCreator suffixCreator() {
+		return new ResourceSuffixCreator() {
+			@Override
+			public String getSuffix(int index) {
+				return index + ".txt";
+			}
+		};
+	}
 
 	@StepScope
 	@Bean

@@ -33,7 +33,7 @@ public class DemonstrativoOrcamentarioRodape implements FlatFileFooterCallback {
     }
 
     @AfterChunk
-    public void adterChunck(ChunkContext context) {
+    public void afterChunck(ChunkContext context) {
         totalGeral = 0.0;
     }
 }

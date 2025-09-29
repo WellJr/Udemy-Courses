@@ -18,6 +18,7 @@ public class GeracaoContaClassifier implements Classifier<Cliente, ItemProcessor
 		put(TipoConta.OURO, new ContaOuroItemProcessor());
 		put(TipoConta.PLATINA, new ContaPlatinaItemProcessor());
 		put(TipoConta.DIAMANTE, new ContaDiamanteItemProcessor());
+		put(TipoConta.INVALIDA, new ContaInvalidaItemProcessor());
 	}};
 
 	@Override

@@ -4,11 +4,14 @@ import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
+import org.springframework.batch.core.job.builder.FlowBuilder;
+import org.springframework.batch.core.job.flow.Flow;
 import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
 
 @EnableBatchProcessing
 @Configuration
@@ -24,9 +27,28 @@ public class MigracaoDadosJobConfig {
     ) {
         return jobBuilderFactory
                 .get("migracaoDadosJob")
-                .start(migrarPessoaStep) // <-- STEP #1
-                .next(migrarDadosBancariosStep) // <--  STEP #2
+
+                .start(stepsParalelos(migrarPessoaStep, migrarDadosBancariosStep))
+//                .start(migrarPessoaStep) // <-- STEP #1
+//                .next(migrarDadosBancariosStep) // <--  STEP #2
+                .end() // <-- Encerra o fluxo
                 .incrementer(new RunIdIncrementer())
                 .build();
+    }
+
+    private Flow stepsParalelos(Step migrarPessoaStep, Step migrarDadosBancariosStep) {
+        // Fluxo #1
+        Flow migrarDadosBancariosFlow = new FlowBuilder<Flow>("migrarDadosBancariosFlow")
+                .start(migrarDadosBancariosStep)
+                .build();
+
+        // Fluxo #2
+        Flow stepsParalelos = new FlowBuilder<Flow>("stepsParalelosFlow")
+                .start(migrarPessoaStep)
+                .split(new SimpleAsyncTaskExecutor()) // <-- Faz a divisão das tarefas
+                .add(migrarDadosBancariosFlow) // <-- Dispara a inicialização da execução
+                .build();
+
+        return stepsParalelos;
     }
 }

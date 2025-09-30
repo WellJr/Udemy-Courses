@@ -21,7 +21,7 @@ public class ArquivoPessoaReaderConfig {
                 .resource(new FileSystemResource("files/pessoas.csv"))
                 .delimited()
                 .names("nome", "email", "dataNascimento", "idade", "id")
-                .addComment("---")
+                .addComment("--")
                 .fieldSetMapper(fieldSetMapper())
                 .build();
     }

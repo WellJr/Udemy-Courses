@@ -1,0 +1,687 @@
+2025-08-28 20:46:18,576 INFO c.u.p.PrimeiroJobSpringBatchApplication [main] Starting PrimeiroJobSpringBatchApplication on LAPTOP-9S3QJ4GF with PID 28520 (C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\target\classes started by Wellington in C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch)
+2025-08-28 20:46:18,583 INFO c.u.p.PrimeiroJobSpringBatchApplication [main] No active profile set, falling back to default profiles: default
+2025-08-28 20:46:19,672 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2025-08-28 20:46:20,628 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2025-08-28 20:46:20,698 INFO o.s.b.c.r.s.JobRepositoryFactoryBean [main] No database type set, using meta data indicating: POSTGRES
+2025-08-28 20:46:20,956 INFO o.s.b.c.l.s.SimpleJobLauncher [main] No TaskExecutor has been set, defaulting to synchronous executor.
+2025-08-28 20:46:21,171 INFO c.u.p.PrimeiroJobSpringBatchApplication [main] Started PrimeiroJobSpringBatchApplication in 3.447 seconds (JVM running for 7.234)
+2025-08-28 20:46:21,323 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=imprimeOlaJob]] launched with the following parameters: [{run.id=13, nome=Ju}]
+2025-08-28 20:46:21,394 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [imprimeOlaStep]
+2025-08-28 20:46:21,423 INFO o.s.b.c.s.AbstractStep [main] Step: [imprimeOlaStep] executed in 29ms
+2025-08-28 20:46:21,438 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=imprimeOlaJob]] completed with the following parameters: [{run.id=13, nome=Ju}] and the following status: [COMPLETED] in 74ms
+2025-08-28 20:46:21,442 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2025-08-28 20:46:21,468 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2025-09-29 20:55:54,978 INFO c.u.m.MigracaoDadosApplication [main] Starting MigracaoDadosApplication on LAPTOP-9S3QJ4GF with PID 28556 (C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob\target\classes started by Wellington in C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob)
+2025-09-29 20:55:54,986 INFO c.u.m.MigracaoDadosApplication [main] No active profile set, falling back to default profiles: default
+2025-09-29 20:55:56,475 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2025-09-29 20:55:57,077 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2025-09-29 20:55:57,210 INFO o.s.b.c.r.s.JobRepositoryFactoryBean [main] No database type set, using meta data indicating: POSTGRES
+2025-09-29 20:55:57,505 INFO o.s.b.c.l.s.SimpleJobLauncher [main] No TaskExecutor has been set, defaulting to synchronous executor.
+2025-09-29 20:55:57,739 INFO c.u.m.MigracaoDadosApplication [main] Started MigracaoDadosApplication in 3.402 seconds (JVM running for 5.99)
+2025-09-29 20:55:57,966 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=migracaoDadosJob]] launched with the following parameters: [{run.id=1}]
+2025-09-29 20:55:58,059 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [migrarPessoaStep]
+2025-09-29 20:55:58,142 ERROR o.s.b.c.s.AbstractStep [main] Encountered an error executing step migrarPessoaStep in job migracaoDadosJob
+org.springframework.batch.item.file.FlatFileParseException: Parsing error at line: 1 in resource=[file [C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob\files\pessoas.csv]], input=[-- Estrutura: nome,email,data_nascimento,idade,id]
+	at org.springframework.batch.item.file.FlatFileItemReader.doRead(FlatFileItemReader.java:189) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.read(AbstractItemCountingItemStreamItemReader.java:93) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProvider.doRead(SimpleChunkProvider.java:99) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProvider.read(SimpleChunkProvider.java:180) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProvider$1.doInIteration(SimpleChunkProvider.java:126) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.getNextResult(RepeatTemplate.java:375) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.executeInternal(RepeatTemplate.java:215) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.iterate(RepeatTemplate.java:145) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProvider.provide(SimpleChunkProvider.java:118) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.ChunkOrientedTasklet.execute(ChunkOrientedTasklet.java:71) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:407) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:331) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) ~[spring-tx-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$2.doInChunkContext(TaskletStep.java:273) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.scope.context.StepContextRepeatCallback.doInIteration(StepContextRepeatCallback.java:82) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.getNextResult(RepeatTemplate.java:375) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.executeInternal(RepeatTemplate.java:215) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.iterate(RepeatTemplate.java:145) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep.doExecute(TaskletStep.java:258) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:208) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:148) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:410) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:136) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:319) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher$1.run(SimpleJobLauncher.java:147) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50) [spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher.run(SimpleJobLauncher.java:140) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration$PassthruAdvice.invoke(SimpleBatchConfiguration.java:127) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at jdk.proxy2.$Proxy57.run(Unknown Source) [?:?]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.execute(JobLauncherCommandLineRunner.java:192) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.executeLocalJobs(JobLauncherCommandLineRunner.java:166) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.launchJobFromProperties(JobLauncherCommandLineRunner.java:153) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.run(JobLauncherCommandLineRunner.java:148) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:784) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:768) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at com.udemy.migracaodados.MigracaoDadosApplication.main(MigracaoDadosApplication.java:10) [classes/:?]
+Caused by: java.lang.IllegalArgumentException: Unparseable date: "data_nascimento", format: [yyyy-MM-dd HH:mm:ss], name: [dataNascimento]
+	at org.springframework.batch.item.file.transform.DefaultFieldSet.readDate(DefaultFieldSet.java:619) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at com.udemy.migracaodados.reader.ArquivoPessoaReaderConfig$1.mapFieldSet(ArquivoPessoaReaderConfig.java:36) ~[classes/:?]
+	at com.udemy.migracaodados.reader.ArquivoPessoaReaderConfig$1.mapFieldSet(ArquivoPessoaReaderConfig.java:30) ~[classes/:?]
+	at org.springframework.batch.item.file.mapping.DefaultLineMapper.mapLine(DefaultLineMapper.java:43) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.item.file.FlatFileItemReader.doRead(FlatFileItemReader.java:185) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	... 45 more
+2025-09-29 20:55:58,161 INFO o.s.b.c.s.AbstractStep [main] Step: [migrarPessoaStep] executed in 102ms
+2025-09-29 20:55:58,184 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=migracaoDadosJob]] completed with the following parameters: [{run.id=1}] and the following status: [FAILED] in 178ms
+2025-09-29 20:55:58,192 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2025-09-29 20:55:58,209 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2025-09-29 21:03:48,500 INFO c.u.m.MigracaoDadosApplication [main] Starting MigracaoDadosApplication on LAPTOP-9S3QJ4GF with PID 29768 (C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob\target\classes started by Wellington in C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob)
+2025-09-29 21:03:48,509 INFO c.u.m.MigracaoDadosApplication [main] No active profile set, falling back to default profiles: default
+2025-09-29 21:03:50,413 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2025-09-29 21:03:50,985 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2025-09-29 21:03:51,121 INFO o.s.b.c.r.s.JobRepositoryFactoryBean [main] No database type set, using meta data indicating: POSTGRES
+2025-09-29 21:03:51,513 INFO o.s.b.c.l.s.SimpleJobLauncher [main] No TaskExecutor has been set, defaulting to synchronous executor.
+2025-09-29 21:03:51,721 INFO c.u.m.MigracaoDadosApplication [main] Started MigracaoDadosApplication in 4.256 seconds (JVM running for 6.498)
+2025-09-29 21:03:52,011 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=migracaoDadosJob]] launched with the following parameters: [{run.id=2}]
+2025-09-29 21:03:52,123 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [migrarPessoaStep]
+2025-09-29 21:03:52,217 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Starting...
+2025-09-29 21:03:52,344 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Start completed.
+2025-09-29 21:04:26,834 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-2 - Shutdown initiated...
+2025-09-29 21:04:26,847 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-2 - Shutdown completed.
+2025-09-29 21:04:26,849 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2025-09-29 21:04:26,844 ERROR o.s.b.c.s.AbstractStep [main] Encountered an error executing step migrarPessoaStep in job migracaoDadosJob
+org.springframework.batch.item.file.NonTransientFlatFileException: Unable to read from resource: [file [C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob\files\pessoas.csv]]
+	at org.springframework.batch.item.file.FlatFileItemReader.readLine(FlatFileItemReader.java:226) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.item.file.FlatFileItemReader.doRead(FlatFileItemReader.java:178) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.item.support.AbstractItemCountingItemStreamItemReader.read(AbstractItemCountingItemStreamItemReader.java:93) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProvider.doRead(SimpleChunkProvider.java:99) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProvider.read(SimpleChunkProvider.java:180) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProvider$1.doInIteration(SimpleChunkProvider.java:126) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.getNextResult(RepeatTemplate.java:375) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.executeInternal(RepeatTemplate.java:215) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.iterate(RepeatTemplate.java:145) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProvider.provide(SimpleChunkProvider.java:118) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.ChunkOrientedTasklet.execute(ChunkOrientedTasklet.java:71) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:407) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:331) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) ~[spring-tx-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$2.doInChunkContext(TaskletStep.java:273) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.scope.context.StepContextRepeatCallback.doInIteration(StepContextRepeatCallback.java:82) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.getNextResult(RepeatTemplate.java:375) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.executeInternal(RepeatTemplate.java:215) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.iterate(RepeatTemplate.java:145) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep.doExecute(TaskletStep.java:258) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:208) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:148) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:410) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:136) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:319) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher$1.run(SimpleJobLauncher.java:147) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50) [spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher.run(SimpleJobLauncher.java:140) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration$PassthruAdvice.invoke(SimpleBatchConfiguration.java:127) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at jdk.proxy2.$Proxy57.run(Unknown Source) [?:?]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.execute(JobLauncherCommandLineRunner.java:192) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.executeLocalJobs(JobLauncherCommandLineRunner.java:166) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.launchJobFromProperties(JobLauncherCommandLineRunner.java:153) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.run(JobLauncherCommandLineRunner.java:148) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:784) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:768) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at com.udemy.migracaodados.MigracaoDadosApplication.main(MigracaoDadosApplication.java:10) [classes/:?]
+Caused by: java.io.IOException: Stream closed
+	at java.io.BufferedReader.ensureOpen(BufferedReader.java:121) ~[?:?]
+	at java.io.BufferedReader.implReadLine(BufferedReader.java:362) ~[?:?]
+	at java.io.BufferedReader.readLine(BufferedReader.java:347) ~[?:?]
+	at java.io.BufferedReader.readLine(BufferedReader.java:436) ~[?:?]
+	at org.springframework.batch.item.file.FlatFileItemReader.readLine(FlatFileItemReader.java:207) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	... 46 more
+2025-09-29 21:04:26,866 ERROR o.s.b.c.s.AbstractStep [main] Encountered an error saving batch meta data for step migrarPessoaStep in job migracaoDadosJob. This job is now in an unknown state and should not be restarted.
+org.springframework.transaction.CannotCreateTransactionException: Could not open JDBC Connection for transaction; nested exception is java.sql.SQLException: HikariDataSource HikariDataSource (HikariPool-1) has been closed.
+	at org.springframework.jdbc.datasource.DataSourceTransactionManager.doBegin(DataSourceTransactionManager.java:308) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.startTransaction(AbstractPlatformTransactionManager.java:400) ~[spring-tx-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:373) ~[spring-tx-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:572) ~[spring-tx-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:360) ~[spring-tx-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118) ~[spring-tx-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at jdk.proxy2.$Proxy54.updateExecutionContext(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration$PassthruAdvice.invoke(SimpleBatchConfiguration.java:127) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at jdk.proxy2.$Proxy54.updateExecutionContext(Unknown Source) ~[?:?]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:254) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:148) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:410) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:136) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:319) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher$1.run(SimpleJobLauncher.java:147) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50) [spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher.run(SimpleJobLauncher.java:140) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration$PassthruAdvice.invoke(SimpleBatchConfiguration.java:127) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at jdk.proxy2.$Proxy57.run(Unknown Source) [?:?]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.execute(JobLauncherCommandLineRunner.java:192) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.executeLocalJobs(JobLauncherCommandLineRunner.java:166) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.launchJobFromProperties(JobLauncherCommandLineRunner.java:153) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.run(JobLauncherCommandLineRunner.java:148) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:784) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:768) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at com.udemy.migracaodados.MigracaoDadosApplication.main(MigracaoDadosApplication.java:10) [classes/:?]
+Caused by: java.sql.SQLException: HikariDataSource HikariDataSource (HikariPool-1) has been closed.
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:96) ~[HikariCP-3.4.3.jar:?]
+	at org.springframework.jdbc.datasource.DataSourceTransactionManager.doBegin(DataSourceTransactionManager.java:264) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	... 44 more
+2025-09-29 21:04:26,870 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2025-09-29 21:04:26,870 INFO o.s.b.c.s.AbstractStep [main] Step: [migrarPessoaStep] executed in 34s747ms
+2025-09-29 21:04:26,871 ERROR o.s.b.c.s.AbstractStep [main] Encountered an error saving batch meta data for step migrarPessoaStep in job migracaoDadosJob. This job is now in an unknown state and should not be restarted.
+org.springframework.transaction.CannotCreateTransactionException: Could not open JDBC Connection for transaction; nested exception is java.sql.SQLException: HikariDataSource HikariDataSource (HikariPool-1) has been closed.
+	at org.springframework.jdbc.datasource.DataSourceTransactionManager.doBegin(DataSourceTransactionManager.java:308) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.startTransaction(AbstractPlatformTransactionManager.java:400) ~[spring-tx-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.getTransaction(AbstractPlatformTransactionManager.java:373) ~[spring-tx-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.createTransactionIfNecessary(TransactionAspectSupport.java:572) ~[spring-tx-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:360) ~[spring-tx-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:118) ~[spring-tx-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at jdk.proxy2.$Proxy54.update(Unknown Source) ~[?:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration$PassthruAdvice.invoke(SimpleBatchConfiguration.java:127) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) ~[spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at jdk.proxy2.$Proxy54.update(Unknown Source) ~[?:?]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:275) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:148) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:410) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:136) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:319) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher$1.run(SimpleJobLauncher.java:147) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50) [spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher.run(SimpleJobLauncher.java:140) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration$PassthruAdvice.invoke(SimpleBatchConfiguration.java:127) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at jdk.proxy2.$Proxy57.run(Unknown Source) [?:?]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.execute(JobLauncherCommandLineRunner.java:192) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.executeLocalJobs(JobLauncherCommandLineRunner.java:166) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.launchJobFromProperties(JobLauncherCommandLineRunner.java:153) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.run(JobLauncherCommandLineRunner.java:148) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:784) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:768) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at com.udemy.migracaodados.MigracaoDadosApplication.main(MigracaoDadosApplication.java:10) [classes/:?]
+Caused by: java.sql.SQLException: HikariDataSource HikariDataSource (HikariPool-1) has been closed.
+	at com.zaxxer.hikari.HikariDataSource.getConnection(HikariDataSource.java:96) ~[HikariCP-3.4.3.jar:?]
+	at org.springframework.jdbc.datasource.DataSourceTransactionManager.doBegin(DataSourceTransactionManager.java:264) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	... 44 more
+2025-09-29 21:04:37,135 INFO c.u.m.MigracaoDadosApplication [main] Starting MigracaoDadosApplication on LAPTOP-9S3QJ4GF with PID 27308 (C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob\target\classes started by Wellington in C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob)
+2025-09-29 21:04:37,144 INFO c.u.m.MigracaoDadosApplication [main] No active profile set, falling back to default profiles: default
+2025-09-29 21:04:38,766 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2025-09-29 21:04:39,113 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2025-09-29 21:04:39,221 INFO o.s.b.c.r.s.JobRepositoryFactoryBean [main] No database type set, using meta data indicating: POSTGRES
+2025-09-29 21:04:39,574 INFO o.s.b.c.l.s.SimpleJobLauncher [main] No TaskExecutor has been set, defaulting to synchronous executor.
+2025-09-29 21:04:39,758 INFO c.u.m.MigracaoDadosApplication [main] Started MigracaoDadosApplication in 3.373 seconds (JVM running for 5.02)
+2025-09-29 21:04:40,216 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=migracaoDadosJob]] launched with the following parameters: [{run.id=3}]
+2025-09-29 21:04:40,310 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [migrarPessoaStep]
+2025-09-29 21:04:40,397 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Starting...
+2025-09-29 21:04:40,426 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Start completed.
+2025-09-29 21:04:40,544 ERROR o.s.b.c.s.AbstractStep [main] Encountered an error executing step migrarPessoaStep in job migracaoDadosJob
+org.springframework.dao.DuplicateKeyException: PreparedStatementCallback; SQL [INSERT INTO pessoa (id, nome, email, data_nascimento, idade) VALUES (?,?,?,?,?)]; ERROR: duplicate key value violates unique constraint "pessoa_pkey"
+  Detalhe: Key (id)=(1) already exists.; nested exception is org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "pessoa_pkey"
+  Detalhe: Key (id)=(1) already exists.
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:243) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1443) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:633) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:647) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.item.database.JdbcBatchItemWriter.write(JdbcBatchItemWriter.java:186) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.writeItems(SimpleChunkProcessor.java:193) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.doWrite(SimpleChunkProcessor.java:159) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.write(SimpleChunkProcessor.java:294) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.process(SimpleChunkProcessor.java:217) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.ChunkOrientedTasklet.execute(ChunkOrientedTasklet.java:77) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:407) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:331) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) ~[spring-tx-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$2.doInChunkContext(TaskletStep.java:273) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.scope.context.StepContextRepeatCallback.doInIteration(StepContextRepeatCallback.java:82) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.getNextResult(RepeatTemplate.java:375) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.executeInternal(RepeatTemplate.java:215) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.iterate(RepeatTemplate.java:145) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep.doExecute(TaskletStep.java:258) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:208) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:148) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:410) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:136) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:319) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher$1.run(SimpleJobLauncher.java:147) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50) [spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher.run(SimpleJobLauncher.java:140) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration$PassthruAdvice.invoke(SimpleBatchConfiguration.java:127) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at jdk.proxy2.$Proxy57.run(Unknown Source) [?:?]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.execute(JobLauncherCommandLineRunner.java:192) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.executeLocalJobs(JobLauncherCommandLineRunner.java:166) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.launchJobFromProperties(JobLauncherCommandLineRunner.java:153) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.run(JobLauncherCommandLineRunner.java:148) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:784) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:768) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at com.udemy.migracaodados.MigracaoDadosApplication.main(MigracaoDadosApplication.java:10) [classes/:?]
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "pessoa_pkey"
+  Detalhe: Key (id)=(1) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2553) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2285) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:521) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:870) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:893) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1644) ~[postgresql-42.2.18.jar:42.2.18]
+	at com.zaxxer.hikari.pool.ProxyStatement.executeBatch(ProxyStatement.java:128) ~[HikariCP-3.4.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeBatch(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.3.jar:?]
+	at org.springframework.batch.item.database.JdbcBatchItemWriter$1.doInPreparedStatement(JdbcBatchItemWriter.java:193) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.item.database.JdbcBatchItemWriter$1.doInPreparedStatement(JdbcBatchItemWriter.java:186) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:617) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	... 43 more
+2025-09-29 21:04:40,569 INFO o.s.b.c.s.AbstractStep [main] Step: [migrarPessoaStep] executed in 258ms
+2025-09-29 21:04:40,619 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=migracaoDadosJob]] completed with the following parameters: [{run.id=3}] and the following status: [FAILED] in 336ms
+2025-09-29 21:04:40,626 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-2 - Shutdown initiated...
+2025-09-29 21:04:40,633 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-2 - Shutdown completed.
+2025-09-29 21:04:40,634 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2025-09-29 21:04:40,651 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2025-09-29 21:08:21,317 INFO c.u.m.MigracaoDadosApplication [main] Starting MigracaoDadosApplication on LAPTOP-9S3QJ4GF with PID 26900 (C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob\target\classes started by Wellington in C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob)
+2025-09-29 21:08:21,325 INFO c.u.m.MigracaoDadosApplication [main] No active profile set, falling back to default profiles: default
+2025-09-29 21:08:22,607 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2025-09-29 21:08:22,925 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2025-09-29 21:08:23,013 INFO o.s.b.c.r.s.JobRepositoryFactoryBean [main] No database type set, using meta data indicating: POSTGRES
+2025-09-29 21:08:23,276 INFO o.s.b.c.l.s.SimpleJobLauncher [main] No TaskExecutor has been set, defaulting to synchronous executor.
+2025-09-29 21:08:23,408 INFO c.u.m.MigracaoDadosApplication [main] Started MigracaoDadosApplication in 2.729 seconds (JVM running for 4.3)
+2025-09-29 21:08:23,527 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=migracaoDadosJob]] launched with the following parameters: [{run.id=4}]
+2025-09-29 21:08:23,606 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [migrarPessoaStep]
+2025-09-29 21:08:23,676 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Starting...
+2025-09-29 21:08:23,707 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Start completed.
+2025-09-29 21:09:24,982 INFO o.s.b.c.s.AbstractStep [main] Step: [migrarPessoaStep] executed in 1m1s375ms
+2025-09-29 21:09:25,005 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [migrarDadosBancariosStep]
+2025-09-29 21:10:22,444 INFO o.s.b.c.s.AbstractStep [main] Step: [migrarDadosBancariosStep] executed in 57s439ms
+2025-09-29 21:10:22,454 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=migracaoDadosJob]] completed with the following parameters: [{run.id=4}] and the following status: [COMPLETED] in 1m58s884ms
+2025-09-29 21:10:22,461 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-2 - Shutdown initiated...
+2025-09-29 21:10:22,468 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-2 - Shutdown completed.
+2025-09-29 21:10:22,469 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2025-09-29 21:10:22,475 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2025-09-29 21:45:31,045 INFO c.u.m.MigracaoDadosApplication [main] Starting MigracaoDadosApplication on LAPTOP-9S3QJ4GF with PID 27388 (C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob\target\classes started by Wellington in C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob)
+2025-09-29 21:45:31,050 INFO c.u.m.MigracaoDadosApplication [main] No active profile set, falling back to default profiles: default
+2025-09-29 21:45:32,206 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2025-09-29 21:45:32,515 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2025-09-29 21:45:32,614 INFO o.s.b.c.r.s.JobRepositoryFactoryBean [main] No database type set, using meta data indicating: POSTGRES
+2025-09-29 21:45:32,927 INFO o.s.b.c.l.s.SimpleJobLauncher [main] No TaskExecutor has been set, defaulting to synchronous executor.
+2025-09-29 21:45:33,082 INFO c.u.m.MigracaoDadosApplication [main] Started MigracaoDadosApplication in 2.709 seconds (JVM running for 3.903)
+2025-09-29 21:45:33,223 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=migracaoDadosJob]] launched with the following parameters: [{run.id=5}]
+2025-09-29 21:45:33,292 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [migrarPessoaStep]
+2025-09-29 21:45:33,348 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Starting...
+2025-09-29 21:45:33,388 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Start completed.
+2025-09-29 21:46:21,047 INFO o.s.b.c.s.AbstractStep [main] Step: [migrarPessoaStep] executed in 47s753ms
+2025-09-29 21:46:21,066 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [migrarDadosBancariosStep]
+2025-09-29 21:46:21,162 ERROR o.s.b.c.s.AbstractStep [main] Encountered an error executing step migrarDadosBancariosStep in job migracaoDadosJob
+org.springframework.dao.DuplicateKeyException: PreparedStatementCallback; SQL [INSERT INTO dados_bancarios (id, pessoa_id, agencia, conta, banco) VALUES (?, ?, ?, ?, ?)]; ERROR: duplicate key value violates unique constraint "dados_bancarios_pkey"
+  Detalhe: Key (id)=(1) already exists.; nested exception is org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "dados_bancarios_pkey"
+  Detalhe: Key (id)=(1) already exists.
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:243) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1443) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:633) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:647) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.batchUpdate(JdbcTemplate.java:936) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate.batchUpdate(NamedParameterJdbcTemplate.java:366) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.item.database.JdbcBatchItemWriter.write(JdbcBatchItemWriter.java:182) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.writeItems(SimpleChunkProcessor.java:193) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.doWrite(SimpleChunkProcessor.java:159) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.write(SimpleChunkProcessor.java:294) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.process(SimpleChunkProcessor.java:217) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.ChunkOrientedTasklet.execute(ChunkOrientedTasklet.java:77) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:407) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:331) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) ~[spring-tx-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$2.doInChunkContext(TaskletStep.java:273) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.scope.context.StepContextRepeatCallback.doInIteration(StepContextRepeatCallback.java:82) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.getNextResult(RepeatTemplate.java:375) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.executeInternal(RepeatTemplate.java:215) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.iterate(RepeatTemplate.java:145) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep.doExecute(TaskletStep.java:258) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:208) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:148) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:410) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:136) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:319) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher$1.run(SimpleJobLauncher.java:147) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50) [spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher.run(SimpleJobLauncher.java:140) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration$PassthruAdvice.invoke(SimpleBatchConfiguration.java:127) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at jdk.proxy2.$Proxy57.run(Unknown Source) [?:?]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.execute(JobLauncherCommandLineRunner.java:192) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.executeLocalJobs(JobLauncherCommandLineRunner.java:166) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.launchJobFromProperties(JobLauncherCommandLineRunner.java:153) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.run(JobLauncherCommandLineRunner.java:148) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:784) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:768) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at com.udemy.migracaodados.MigracaoDadosApplication.main(MigracaoDadosApplication.java:10) [classes/:?]
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "dados_bancarios_pkey"
+  Detalhe: Key (id)=(1) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2553) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2285) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:521) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:870) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:893) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1644) ~[postgresql-42.2.18.jar:42.2.18]
+	at com.zaxxer.hikari.pool.ProxyStatement.executeBatch(ProxyStatement.java:128) ~[HikariCP-3.4.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeBatch(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.3.jar:?]
+	at org.springframework.jdbc.core.JdbcTemplate.lambda$batchUpdate$2(JdbcTemplate.java:950) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:617) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	... 45 more
+2025-09-29 21:46:21,176 INFO o.s.b.c.s.AbstractStep [main] Step: [migrarDadosBancariosStep] executed in 110ms
+2025-09-29 21:46:21,189 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=migracaoDadosJob]] completed with the following parameters: [{run.id=5}] and the following status: [FAILED] in 47s931ms
+2025-09-29 21:46:21,194 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-2 - Shutdown initiated...
+2025-09-29 21:46:21,204 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-2 - Shutdown completed.
+2025-09-29 21:46:21,205 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2025-09-29 21:46:21,214 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2025-09-30 20:15:28,732 INFO c.u.m.MigracaoDadosApplication [main] Starting MigracaoDadosApplication on LAPTOP-9S3QJ4GF with PID 15876 (C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob\target\classes started by Wellington in C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob)
+2025-09-30 20:15:28,741 INFO c.u.m.MigracaoDadosApplication [main] No active profile set, falling back to default profiles: default
+2025-09-30 20:15:30,966 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2025-09-30 20:15:32,075 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2025-09-30 20:15:32,300 INFO o.s.b.c.r.s.JobRepositoryFactoryBean [main] No database type set, using meta data indicating: POSTGRES
+2025-09-30 20:15:32,959 INFO o.s.b.c.l.s.SimpleJobLauncher [main] No TaskExecutor has been set, defaulting to synchronous executor.
+2025-09-30 20:15:33,287 INFO c.u.m.MigracaoDadosApplication [main] Started MigracaoDadosApplication in 5.261 seconds (JVM running for 7.05)
+2025-09-30 20:15:33,783 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=migracaoDadosJob]] launched with the following parameters: [{run.id=6}]
+2025-09-30 20:15:34,013 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [migrarPessoaStep]
+2025-09-30 20:15:35,531 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Starting...
+2025-09-30 20:15:36,431 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Start completed.
+2025-09-30 20:15:40,170 INFO o.s.b.c.s.AbstractStep [main] Step: [migrarPessoaStep] executed in 6s156ms
+2025-09-30 20:15:40,247 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [migrarDadosBancariosStep]
+2025-09-30 20:15:42,311 ERROR o.s.b.c.s.AbstractStep [main] Encountered an error executing step migrarDadosBancariosStep in job migracaoDadosJob
+org.springframework.dao.DuplicateKeyException: PreparedStatementCallback; SQL [INSERT INTO dados_bancarios (id, pessoa_id, agencia, conta, banco) VALUES (?, ?, ?, ?, ?)]; ERROR: duplicate key value violates unique constraint "dados_bancarios_pkey"
+  Detalhe: Key (id)=(1) already exists.; nested exception is org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "dados_bancarios_pkey"
+  Detalhe: Key (id)=(1) already exists.
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:243) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1443) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:633) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:647) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.batchUpdate(JdbcTemplate.java:936) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate.batchUpdate(NamedParameterJdbcTemplate.java:366) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.item.database.JdbcBatchItemWriter.write(JdbcBatchItemWriter.java:182) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.writeItems(SimpleChunkProcessor.java:193) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.doWrite(SimpleChunkProcessor.java:159) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.write(SimpleChunkProcessor.java:294) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.process(SimpleChunkProcessor.java:217) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.ChunkOrientedTasklet.execute(ChunkOrientedTasklet.java:77) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:407) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:331) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) ~[spring-tx-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$2.doInChunkContext(TaskletStep.java:273) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.scope.context.StepContextRepeatCallback.doInIteration(StepContextRepeatCallback.java:82) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.getNextResult(RepeatTemplate.java:375) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.executeInternal(RepeatTemplate.java:215) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.iterate(RepeatTemplate.java:145) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep.doExecute(TaskletStep.java:258) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:208) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:148) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.AbstractJob.handleStep(AbstractJob.java:410) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.SimpleJob.doExecute(SimpleJob.java:136) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.AbstractJob.execute(AbstractJob.java:319) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher$1.run(SimpleJobLauncher.java:147) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.core.task.SyncTaskExecutor.execute(SyncTaskExecutor.java:50) [spring-core-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.launch.support.SimpleJobLauncher.run(SimpleJobLauncher.java:140) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:580) ~[?:?]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:344) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:198) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.configuration.annotation.SimpleBatchConfiguration$PassthruAdvice.invoke(SimpleBatchConfiguration.java:127) [spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:212) [spring-aop-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at jdk.proxy2.$Proxy57.run(Unknown Source) [?:?]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.execute(JobLauncherCommandLineRunner.java:192) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.executeLocalJobs(JobLauncherCommandLineRunner.java:166) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.launchJobFromProperties(JobLauncherCommandLineRunner.java:153) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.autoconfigure.batch.JobLauncherCommandLineRunner.run(JobLauncherCommandLineRunner.java:148) [spring-boot-autoconfigure-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunner(SpringApplication.java:784) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.callRunners(SpringApplication.java:768) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:322) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215) [spring-boot-2.2.7.RELEASE.jar:2.2.7.RELEASE]
+	at com.udemy.migracaodados.MigracaoDadosApplication.main(MigracaoDadosApplication.java:10) [classes/:?]
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "dados_bancarios_pkey"
+  Detalhe: Key (id)=(1) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2553) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2285) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1404) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1429) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:507) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:870) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:893) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1644) ~[postgresql-42.2.18.jar:42.2.18]
+	at com.zaxxer.hikari.pool.ProxyStatement.executeBatch(ProxyStatement.java:128) ~[HikariCP-3.4.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeBatch(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.3.jar:?]
+	at org.springframework.jdbc.core.JdbcTemplate.lambda$batchUpdate$2(JdbcTemplate.java:950) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:617) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	... 45 more
+2025-09-30 20:15:42,415 INFO o.s.b.c.s.AbstractStep [main] Step: [migrarDadosBancariosStep] executed in 2s168ms
+2025-09-30 20:15:42,538 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=migracaoDadosJob]] completed with the following parameters: [{run.id=6}] and the following status: [FAILED] in 8s631ms
+2025-09-30 20:15:42,559 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-2 - Shutdown initiated...
+2025-09-30 20:15:43,034 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-2 - Shutdown completed.
+2025-09-30 20:15:43,034 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2025-09-30 20:15:43,057 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2025-09-30 20:16:46,806 INFO c.u.m.MigracaoDadosApplication [main] Starting MigracaoDadosApplication on LAPTOP-9S3QJ4GF with PID 5492 (C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob\target\classes started by Wellington in C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob)
+2025-09-30 20:16:46,816 INFO c.u.m.MigracaoDadosApplication [main] No active profile set, falling back to default profiles: default
+2025-09-30 20:16:49,781 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2025-09-30 20:16:50,778 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2025-09-30 20:16:51,025 INFO o.s.b.c.r.s.JobRepositoryFactoryBean [main] No database type set, using meta data indicating: POSTGRES
+2025-09-30 20:16:51,735 INFO o.s.b.c.l.s.SimpleJobLauncher [main] No TaskExecutor has been set, defaulting to synchronous executor.
+2025-09-30 20:16:52,112 INFO c.u.m.MigracaoDadosApplication [main] Started MigracaoDadosApplication in 6.143 seconds (JVM running for 8.227)
+2025-09-30 20:16:52,346 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=migracaoDadosJob]] launched with the following parameters: [{run.id=7}]
+2025-09-30 20:16:52,491 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [migrarPessoaStep]
+2025-09-30 20:16:53,448 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Starting...
+2025-09-30 20:16:53,534 INFO c.z.h.HikariDataSource [main] HikariPool-2 - Start completed.
+2025-09-30 20:16:55,965 INFO o.s.b.c.s.AbstractStep [main] Step: [migrarPessoaStep] executed in 3s473ms
+2025-09-30 20:16:56,040 INFO o.s.b.c.j.SimpleStepHandler [main] Executing step: [migrarDadosBancariosStep]
+2025-09-30 20:16:59,788 INFO o.s.b.c.s.AbstractStep [main] Step: [migrarDadosBancariosStep] executed in 3s746ms
+2025-09-30 20:16:59,808 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [SimpleJob: [name=migracaoDadosJob]] completed with the following parameters: [{run.id=7}] and the following status: [COMPLETED] in 7s371ms
+2025-09-30 20:16:59,817 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-2 - Shutdown initiated...
+2025-09-30 20:16:59,832 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-2 - Shutdown completed.
+2025-09-30 20:16:59,833 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2025-09-30 20:16:59,862 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2025-09-30 20:30:39,060 INFO c.u.m.MigracaoDadosApplication [main] Starting MigracaoDadosApplication on LAPTOP-9S3QJ4GF with PID 21468 (C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob\target\classes started by Wellington in C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob)
+2025-09-30 20:30:39,067 INFO c.u.m.MigracaoDadosApplication [main] No active profile set, falling back to default profiles: default
+2025-09-30 20:30:40,662 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2025-09-30 20:30:41,150 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2025-09-30 20:30:41,277 INFO o.s.b.c.r.s.JobRepositoryFactoryBean [main] No database type set, using meta data indicating: POSTGRES
+2025-09-30 20:30:41,648 INFO o.s.b.c.l.s.SimpleJobLauncher [main] No TaskExecutor has been set, defaulting to synchronous executor.
+2025-09-30 20:30:41,809 INFO c.u.m.MigracaoDadosApplication [main] Started MigracaoDadosApplication in 3.537 seconds (JVM running for 5.222)
+2025-09-30 20:30:41,983 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [FlowJob: [name=migracaoDadosJob]] launched with the following parameters: [{run.id=8}]
+2025-09-30 20:30:42,078 INFO o.s.b.c.j.SimpleStepHandler [SimpleAsyncTaskExecutor-1] Executing step: [migrarDadosBancariosStep]
+2025-09-30 20:30:42,080 INFO o.s.b.c.j.SimpleStepHandler [SimpleAsyncTaskExecutor-2] Executing step: [migrarPessoaStep]
+2025-09-30 20:30:42,795 INFO c.z.h.HikariDataSource [SimpleAsyncTaskExecutor-2] HikariPool-2 - Starting...
+2025-09-30 20:30:42,846 INFO c.z.h.HikariDataSource [SimpleAsyncTaskExecutor-2] HikariPool-2 - Start completed.
+2025-09-30 20:30:43,063 ERROR o.s.b.c.s.AbstractStep [SimpleAsyncTaskExecutor-2] Encountered an error executing step migrarPessoaStep in job migracaoDadosJob
+org.springframework.dao.DuplicateKeyException: PreparedStatementCallback; SQL [INSERT INTO pessoa (id, nome, email, data_nascimento, idade) VALUES (?,?,?,?,?)]; ERROR: duplicate key value violates unique constraint "pessoa_pkey"
+  Detalhe: Key (id)=(2) already exists.; nested exception is org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "pessoa_pkey"
+  Detalhe: Key (id)=(2) already exists.
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:243) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1443) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:633) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:647) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.item.database.JdbcBatchItemWriter.write(JdbcBatchItemWriter.java:186) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.item.support.ClassifierCompositeItemWriter.write(ClassifierCompositeItemWriter.java:69) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.writeItems(SimpleChunkProcessor.java:193) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.doWrite(SimpleChunkProcessor.java:159) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.write(SimpleChunkProcessor.java:294) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.process(SimpleChunkProcessor.java:217) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.ChunkOrientedTasklet.execute(ChunkOrientedTasklet.java:77) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:407) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:331) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) ~[spring-tx-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$2.doInChunkContext(TaskletStep.java:273) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.scope.context.StepContextRepeatCallback.doInIteration(StepContextRepeatCallback.java:82) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.getNextResult(RepeatTemplate.java:375) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.executeInternal(RepeatTemplate.java:215) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.iterate(RepeatTemplate.java:145) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep.doExecute(TaskletStep.java:258) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:208) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:148) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.flow.JobFlowExecutor.executeStep(JobFlowExecutor.java:68) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.flow.support.state.StepState.handle(StepState.java:68) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.flow.support.SimpleFlow.resume(SimpleFlow.java:169) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.flow.support.SimpleFlow.start(SimpleFlow.java:144) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.flow.support.state.SplitState$1.call(SplitState.java:94) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.flow.support.state.SplitState$1.call(SplitState.java:91) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "pessoa_pkey"
+  Detalhe: Key (id)=(2) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2553) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2285) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1404) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1429) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:507) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:870) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:893) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1644) ~[postgresql-42.2.18.jar:42.2.18]
+	at com.zaxxer.hikari.pool.ProxyStatement.executeBatch(ProxyStatement.java:128) ~[HikariCP-3.4.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeBatch(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.3.jar:?]
+	at org.springframework.batch.item.database.JdbcBatchItemWriter$1.doInPreparedStatement(JdbcBatchItemWriter.java:193) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.item.database.JdbcBatchItemWriter$1.doInPreparedStatement(JdbcBatchItemWriter.java:186) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:617) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	... 27 more
+2025-09-30 20:30:43,093 INFO o.s.b.c.s.AbstractStep [SimpleAsyncTaskExecutor-2] Step: [migrarPessoaStep] executed in 1s12ms
+2025-09-30 20:30:43,433 ERROR o.s.b.c.s.AbstractStep [SimpleAsyncTaskExecutor-1] Encountered an error executing step migrarDadosBancariosStep in job migracaoDadosJob
+org.springframework.dao.DuplicateKeyException: PreparedStatementCallback; SQL [INSERT INTO dados_bancarios (id, pessoa_id, agencia, conta, banco) VALUES (?, ?, ?, ?, ?)]; ERROR: duplicate key value violates unique constraint "dados_bancarios_pkey"
+  Detalhe: Key (id)=(1) already exists.; nested exception is org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "dados_bancarios_pkey"
+  Detalhe: Key (id)=(1) already exists.
+	at org.springframework.jdbc.support.SQLErrorCodeSQLExceptionTranslator.doTranslate(SQLErrorCodeSQLExceptionTranslator.java:243) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:72) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1443) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:633) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:647) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.batchUpdate(JdbcTemplate.java:936) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate.batchUpdate(NamedParameterJdbcTemplate.java:366) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.item.database.JdbcBatchItemWriter.write(JdbcBatchItemWriter.java:182) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.writeItems(SimpleChunkProcessor.java:193) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.doWrite(SimpleChunkProcessor.java:159) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.write(SimpleChunkProcessor.java:294) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.SimpleChunkProcessor.process(SimpleChunkProcessor.java:217) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.item.ChunkOrientedTasklet.execute(ChunkOrientedTasklet.java:77) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:407) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$ChunkTransactionCallback.doInTransaction(TaskletStep.java:331) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.transaction.support.TransactionTemplate.execute(TransactionTemplate.java:140) ~[spring-tx-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep$2.doInChunkContext(TaskletStep.java:273) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.scope.context.StepContextRepeatCallback.doInIteration(StepContextRepeatCallback.java:82) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.getNextResult(RepeatTemplate.java:375) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.executeInternal(RepeatTemplate.java:215) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.repeat.support.RepeatTemplate.iterate(RepeatTemplate.java:145) ~[spring-batch-infrastructure-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.tasklet.TaskletStep.doExecute(TaskletStep.java:258) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.step.AbstractStep.execute(AbstractStep.java:208) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.SimpleStepHandler.handleStep(SimpleStepHandler.java:148) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.flow.JobFlowExecutor.executeStep(JobFlowExecutor.java:68) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.flow.support.state.StepState.handle(StepState.java:68) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.flow.support.SimpleFlow.resume(SimpleFlow.java:169) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.flow.support.SimpleFlow.start(SimpleFlow.java:144) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.flow.support.state.SplitState$1.call(SplitState.java:94) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.batch.core.job.flow.support.state.SplitState$1.call(SplitState.java:91) ~[spring-batch-core-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at java.util.concurrent.FutureTask.run(FutureTask.java:317) ~[?:?]
+	at java.lang.Thread.run(Thread.java:1583) [?:?]
+Caused by: org.postgresql.util.PSQLException: ERROR: duplicate key value violates unique constraint "dados_bancarios_pkey"
+  Detalhe: Key (id)=(1) already exists.
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2553) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2285) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.core.v3.QueryExecutorImpl.flushIfDeadlockRisk(QueryExecutorImpl.java:1404) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.core.v3.QueryExecutorImpl.sendQuery(QueryExecutorImpl.java:1429) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:507) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.jdbc.PgStatement.internalExecuteBatch(PgStatement.java:870) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.jdbc.PgStatement.executeBatch(PgStatement.java:893) ~[postgresql-42.2.18.jar:42.2.18]
+	at org.postgresql.jdbc.PgPreparedStatement.executeBatch(PgPreparedStatement.java:1644) ~[postgresql-42.2.18.jar:42.2.18]
+	at com.zaxxer.hikari.pool.ProxyStatement.executeBatch(ProxyStatement.java:128) ~[HikariCP-3.4.3.jar:?]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeBatch(HikariProxyPreparedStatement.java) ~[HikariCP-3.4.3.jar:?]
+	at org.springframework.jdbc.core.JdbcTemplate.lambda$batchUpdate$2(JdbcTemplate.java:950) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:617) ~[spring-jdbc-5.2.6.RELEASE.jar:5.2.6.RELEASE]
+	... 28 more
+2025-09-30 20:30:43,441 INFO o.s.b.c.s.AbstractStep [SimpleAsyncTaskExecutor-1] Step: [migrarDadosBancariosStep] executed in 1s361ms
+2025-09-30 20:30:43,464 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [FlowJob: [name=migracaoDadosJob]] completed with the following parameters: [{run.id=8}] and the following status: [FAILED] in 1s433ms
+2025-09-30 20:30:43,473 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-2 - Shutdown initiated...
+2025-09-30 20:30:43,499 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-2 - Shutdown completed.
+2025-09-30 20:30:43,500 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2025-09-30 20:30:43,519 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.
+2025-09-30 20:31:15,966 INFO c.u.m.MigracaoDadosApplication [main] Starting MigracaoDadosApplication on LAPTOP-9S3QJ4GF with PID 25804 (C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob\target\classes started by Wellington in C:\Users\Wellington\Documents\Cursos\Udemy\Udemy-Courses\08.2025_Spring_Batch\MigracaoDadosJob)
+2025-09-30 20:31:15,975 INFO c.u.m.MigracaoDadosApplication [main] No active profile set, falling back to default profiles: default
+2025-09-30 20:31:17,311 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Starting...
+2025-09-30 20:31:17,581 INFO c.z.h.HikariDataSource [main] HikariPool-1 - Start completed.
+2025-09-30 20:31:17,669 INFO o.s.b.c.r.s.JobRepositoryFactoryBean [main] No database type set, using meta data indicating: POSTGRES
+2025-09-30 20:31:17,931 INFO o.s.b.c.l.s.SimpleJobLauncher [main] No TaskExecutor has been set, defaulting to synchronous executor.
+2025-09-30 20:31:18,078 INFO c.u.m.MigracaoDadosApplication [main] Started MigracaoDadosApplication in 2.686 seconds (JVM running for 4.13)
+2025-09-30 20:31:18,185 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [FlowJob: [name=migracaoDadosJob]] launched with the following parameters: [{run.id=9}]
+2025-09-30 20:31:18,254 INFO o.s.b.c.j.SimpleStepHandler [SimpleAsyncTaskExecutor-2] Executing step: [migrarPessoaStep]
+2025-09-30 20:31:18,256 INFO o.s.b.c.j.SimpleStepHandler [SimpleAsyncTaskExecutor-1] Executing step: [migrarDadosBancariosStep]
+2025-09-30 20:31:18,848 INFO c.z.h.HikariDataSource [SimpleAsyncTaskExecutor-2] HikariPool-2 - Starting...
+2025-09-30 20:31:18,881 INFO c.z.h.HikariDataSource [SimpleAsyncTaskExecutor-2] HikariPool-2 - Start completed.
+2025-09-30 20:31:20,948 INFO o.s.b.c.s.AbstractStep [SimpleAsyncTaskExecutor-2] Step: [migrarPessoaStep] executed in 2s692ms
+2025-09-30 20:31:21,348 INFO o.s.b.c.s.AbstractStep [SimpleAsyncTaskExecutor-1] Step: [migrarDadosBancariosStep] executed in 3s91ms
+2025-09-30 20:31:21,366 INFO o.s.b.c.l.s.SimpleJobLauncher [main] Job: [FlowJob: [name=migracaoDadosJob]] completed with the following parameters: [{run.id=9}] and the following status: [COMPLETED] in 3s146ms
+2025-09-30 20:31:21,373 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-2 - Shutdown initiated...
+2025-09-30 20:31:21,384 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-2 - Shutdown completed.
+2025-09-30 20:31:21,384 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown initiated...
+2025-09-30 20:31:21,390 INFO c.z.h.HikariDataSource [SpringContextShutdownHook] HikariPool-1 - Shutdown completed.

@@ -34,7 +34,7 @@ public class LerTransacoesReaderConfig {
             @Override
             public Transacao mapRow(ResultSet rs, int i) throws SQLException {
                 CartaoCredito cartaoCredito = new CartaoCredito();
-                cartaoCredito.setNumeroCartaoCredito(rs.getInt("numero_caratao_credito"));
+                cartaoCredito.setNumeroCartaoCredito(rs.getInt("numero_cartao_credito"));
                 Cliente cliente = new Cliente();
                 cliente.setId(rs.getInt("cliente"));
                 cartaoCredito.setCliente(cliente);
@@ -42,7 +42,7 @@ public class LerTransacoesReaderConfig {
                 Transacao transacao = new Transacao();
                 transacao.setId(rs.getInt("id"));
                 transacao.setCartaoCredito(cartaoCredito);
-                transacao.setData(rs.getDate("data"));
+                transacao.setData(rs.getDate("data_transacao"));
                 transacao.setValor(rs.getDouble("valor"));
                 transacao.setDescricao(rs.getString("descricao"));
                 return transacao;

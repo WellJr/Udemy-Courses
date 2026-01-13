@@ -3,10 +3,10 @@ package com.udemy.faturacartaocredito.step;
 import com.udemy.faturacartaocredito.dominio.FaturaCartaoCredito;
 import com.udemy.faturacartaocredito.dominio.Transacao;
 import com.udemy.faturacartaocredito.reader.FaturaCartaoCreditoReader;
+import com.udemy.faturacartaocredito.writer.TotalTransacoesFooterCallBack;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
 import org.springframework.batch.item.ItemProcessor;
-import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemStreamReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +22,8 @@ public class FaturaCartaoCreditoStepConfig {
     public Step faturaCartaoCreditoStep(
             ItemStreamReader<Transacao> lerTransacoesReader,
             ItemProcessor<FaturaCartaoCredito, FaturaCartaoCredito> carregarDadosClienteProcessor,
-            ItemWriter<FaturaCartaoCredito> escreverFaturaCartaoCredito
+            ItemWriter<FaturaCartaoCredito> escreverFaturaCartaoCredito,
+            TotalTransacoesFooterCallBack listener
     ) {
         return stepBuilderFactory
                 .get("faturaCartaoCreditoStep")
@@ -30,6 +31,7 @@ public class FaturaCartaoCreditoStepConfig {
                 .reader(new FaturaCartaoCreditoReader(lerTransacoesReader))
                 .processor(carregarDadosClienteProcessor)
                 .writer(escreverFaturaCartaoCredito)
+                .listener(listener)
                 .build();
     }
 }

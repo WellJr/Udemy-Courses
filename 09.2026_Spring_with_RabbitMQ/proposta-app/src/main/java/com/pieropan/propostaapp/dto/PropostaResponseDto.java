@@ -13,6 +13,6 @@ public class PropostaResponseDto {
     private Double renda;
     private Double valorSolicitado;
     private int prazoPagamento;
-    private Boolean aprovado;
-    private String observação;
+    private Boolean aprovada;
+    private String observacao;
 }

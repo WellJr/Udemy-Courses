@@ -8,5 +8,6 @@ import java.util.List;
 
 @Repository
 public interface PropostaRepository extends CrudRepository<Proposta, Long> {
-//    List<Proposta> findAll();
+
+    List<Proposta> findAllByIntegradaIsFalse();
 }

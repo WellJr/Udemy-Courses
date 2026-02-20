@@ -28,7 +28,7 @@ public interface PropostaMapper {
 
     // campos que tem em Proposta e não no DTO
     @Mapping(target = "id", ignore = true)
-    @Mapping(target = "integrada", ignore = true)
+    @Mapping(target = "integrada", constant = "true")
     @Mapping(target = "aprovada", ignore = true)
     @Mapping(target = "observacao", ignore = true)
     Proposta convertDtoToProposta(PropostaRequestDto propostaRequestDto);

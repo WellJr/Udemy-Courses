@@ -1,5 +1,6 @@
 package com.pieropan.propostaapp.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,6 +31,7 @@ public class Proposta {
 
     @OneToOne(cascade = CascadeType.PERSIST) // Salva o objeto usuário caso ainda não exista
     @JoinColumn(name = "id_usuario")
+    @JsonManagedReference //-> Define quem gerencia o relacionamento
     private Usuario usuario;
 
 }

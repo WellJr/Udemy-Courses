@@ -16,7 +16,10 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMQConfiguration {
 
     @Value("${rabbitmq.propostapendente.exchange}")
-    private String exchange;
+    private String exchangePropostaPendente;
+
+    @Value("${rabbitmq.propostaconcluida.exchange}")
+    private String exchangePropostaConcluida;
 
     @Bean
     public Queue criarFilaPropostaMsAnaliseCredito() {
@@ -34,7 +37,7 @@ public class RabbitMQConfiguration {
     }
 
     @Bean
-    public Queue criarFilaPropostaConcluidaNotificacao() {
+    public Queue criarFilaPropostaConcluidaMsNotificacao() {
         return QueueBuilder.durable("proposta-concluida.ms-notificacao").build();
     }
 
@@ -48,11 +51,18 @@ public class RabbitMQConfiguration {
         return event -> rabbitAdmin.initialize();
     }
 
+    // Criando Exchanges
     @Bean
     public FanoutExchange criarFanoutExchangePropostaPendente() {
-        return ExchangeBuilder.fanoutExchange(exchange).build();
+        return ExchangeBuilder.fanoutExchange(exchangePropostaPendente).build();
     }
 
+    @Bean
+    public FanoutExchange criarFanoutExchangePropostaConcluida() {
+        return ExchangeBuilder.fanoutExchange(exchangePropostaConcluida).build();
+    }
+
+    // Criando Bindings e linkando as filas na exchanges
     @Bean
     public Binding criarBindingPropostaPendenteMSAnaliseCredito() {
         return BindingBuilder.bind(criarFilaPropostaMsAnaliseCredito())
@@ -63,6 +73,19 @@ public class RabbitMQConfiguration {
     public Binding criarBindingPropostaPendenteMSNotificacao() {
         return BindingBuilder.bind(criarFilaPropostaPendenteMsNotificacao())
                 .to(criarFanoutExchangePropostaPendente());
+    }
+
+    // Bindings proposta concluida
+    @Bean
+    public Binding criarBindingPropostaConcluidaMSPropostaApp() {
+        return BindingBuilder.bind(criarFilaPropostaConcluidaMsProposta())
+                .to(criarFanoutExchangePropostaConcluida());
+    }
+
+    @Bean
+    public Binding criarBindingPropostaConcluidaMSNotificacao() {
+        return BindingBuilder.bind(criarFilaPropostaConcluidaMsNotificacao())
+                .to(criarFanoutExchangePropostaConcluida());
     }
 
     // Resolver problemas com conversão do objeto para JSON

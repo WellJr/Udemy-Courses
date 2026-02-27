@@ -24,6 +24,7 @@ public class AmazonSnsConfiguration {
         return new BasicAWSCredentials(accessKey, secretKey);
     }
 
+    @Bean
     public AmazonSNS amazonSNS() {
         return AmazonSNSAsyncClientBuilder.standard()
                 .withCredentials(new AWSStaticCredentialsProvider(awsCredentials()))

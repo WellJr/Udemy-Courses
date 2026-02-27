@@ -13,7 +13,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AmazonSnsConfiguration {
 
-    @Value("${aws.acessKey}")
+    @Value("${aws.accessKey}")
     private String accessKey;
 
     @Value("${aws.secretKey}")
@@ -29,5 +29,4 @@ public class AmazonSnsConfiguration {
                 .withCredentials(new AWSStaticCredentialsProvider(awsCredentials()))
                 .withRegion(Regions.US_EAST_1).build();
     }
-    
 }

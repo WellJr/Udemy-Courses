@@ -16,14 +16,14 @@ public class AnalisecreditoApplication {
 		SpringApplication.run(AnalisecreditoApplication.class, args);
 	}
 
-	@Autowired
-	private AnaliseCreditoService analiseCreditoService;
-
-	@Bean
-	public CommandLineRunner commandLineRunner() {
-		return args -> {
-			analiseCreditoService.analisar(new Proposta());
-		};
-	}
+//	@Autowired
+//	private AnaliseCreditoService analiseCreditoService;
+//
+//	@Bean
+//	public CommandLineRunner commandLineRunner() {
+//		return args -> {
+////			analiseCreditoService.analisar(new Proposta());
+//		};
+//	}
 
 }

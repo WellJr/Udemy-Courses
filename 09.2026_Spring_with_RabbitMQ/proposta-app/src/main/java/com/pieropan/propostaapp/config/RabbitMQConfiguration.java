@@ -23,7 +23,9 @@ public class RabbitMQConfiguration {
 
     @Bean
     public Queue criarFilaPropostaMsAnaliseCredito() {
-        return QueueBuilder.durable("proposta-pendente.ms-analise-credito").build();
+        return QueueBuilder.durable("proposta-pendente.ms-analise-credito")
+                .deadLetterExchange("proposta-pendente-dlx.ex") // vincula a dead letter queue com a fila.
+                .build();
     }
 
     @Bean
@@ -49,6 +51,23 @@ public class RabbitMQConfiguration {
     @Bean
     public ApplicationListener<ApplicationReadyEvent> inicializarAdmin(RabbitAdmin rabbitAdmin) {
         return event -> rabbitAdmin.initialize();
+    }
+
+    // Criando dead letter queues
+    @Bean
+    public Queue criarFilaPropostaPendenteDlq() {
+        return QueueBuilder.durable("proposta-pendente.dlq").build();
+    }
+
+    @Bean
+    public FanoutExchange deadLetterQueueExchange() {
+        return ExchangeBuilder.fanoutExchange("proposta-pendente-dlx.ex").build();
+    }
+
+    @Bean
+    public Binding criarDeadLetterQueueBinding() {
+        return BindingBuilder.bind(criarFilaPropostaPendenteDlq())
+                .to(deadLetterQueueExchange());
     }
 
     // Criando Exchanges

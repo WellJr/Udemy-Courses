@@ -24,6 +24,9 @@ public class RabbitMQConfiguration {
     @Bean
     public Queue criarFilaPropostaMsAnaliseCredito() {
         return QueueBuilder.durable("proposta-pendente.ms-analise-credito")
+                // arguments for queue
+                // .maxLength(2L)
+//                .ttl(10000) // tempo maximo para mensagem ser consumida
                 .deadLetterExchange("proposta-pendente-dlx.ex") // vincula a dead letter queue com a fila.
                 .build();
     }

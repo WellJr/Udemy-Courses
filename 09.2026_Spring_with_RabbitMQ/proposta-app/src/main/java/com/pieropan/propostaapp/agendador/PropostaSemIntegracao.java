@@ -5,6 +5,7 @@ import com.pieropan.propostaapp.entity.Proposta;
 import com.pieropan.propostaapp.service.NotificacaoRabbitService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.amqp.core.MessagePostProcessor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -30,10 +31,17 @@ public class PropostaSemIntegracao {
 
     @Scheduled(fixedDelay = 10, timeUnit = TimeUnit.SECONDS)
     public void buscarPorpostasSemIntegracao() {
+
+        //Definindo prioridade das mensagens
+        MessagePostProcessor messagePostProcessor = message -> {
+            message.getMessageProperties().setPriority(5);
+            return message;
+        };
+
         propostaRepository.findAllByIntegradaIsFalse().forEach(proposta -> {
 
             try {
-                notificacaoRabbitService.notificar(proposta, exchange);
+                notificacaoRabbitService.notificar(proposta, exchange, messagePostProcessor);
                 atualizarProposta(proposta);
             } catch (RuntimeException ex) {
                 logger.error(ex.getMessage());

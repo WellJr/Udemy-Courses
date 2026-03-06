@@ -51,8 +51,9 @@ public class PropostaSemIntegracao {
     }
 
     private void atualizarProposta(Proposta proposta) {
-        proposta.setIntegrada(true);
-        propostaRepository.save(proposta);
+//        proposta.setIntegrada(true);
+//        propostaRepository.save(proposta);
+        propostaRepository.atualizarPropostaIntegrada(proposta.getId(), true);
     }
 
 }
